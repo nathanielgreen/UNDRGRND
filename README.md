@@ -38,6 +38,8 @@ A social network linking up ravers with the newest underground music events.
 
 <div id="1.2" />
 
+## 1.2 Back-end
+
 - [Firebase](https://firebase.google.com/)
 
 [<-- Back to Contents](#contents)
@@ -68,7 +70,7 @@ Example: `feature/UG-92-example-branch-name`
 
 - `feature`: Code that contains new features or functionality to project code base.
 - `task`: Changes to already existing components or functionality.
-- `bug`: Fixes a broken feature or piece of functionality.
+- `fix`: Fixes a broken feature or piece of functionality.
 
 ### Committing Code
 
@@ -90,7 +92,7 @@ e.g. `PATCH: Removing incorrect README info`
 
 To merge your branch, open a pull request on Github and change the title of the
 pull request to match that of the Trello ticket, with square brackets around the
-ticket number, and regular brackets around the type of card (feature/task/bug).
+ticket number, and regular brackets around the type of card (feature/task/fix).
 
 e.g. `[UG-92] (Feature) Example Pull Request Name`
 
