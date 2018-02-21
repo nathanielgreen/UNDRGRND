@@ -1,0 +1,33 @@
+{
+  "name": "undrgrnd",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Nathaniel Green <ngreen2303@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "firebase": "^4.10.0",
+    "nuxt": "^1.0.0",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
+  }
+}
