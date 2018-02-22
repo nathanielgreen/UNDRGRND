@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'LoginForm',
@@ -32,15 +32,18 @@ export default {
       password: '',
     };
   },
+  computed: {
+    ...mapActions([
+      'SIGN_IN',
+    ]),
+  },
   methods: {
     signIn() {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.$router.replace('/');
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      const signInDetails = {
+        email: this.email,
+        password: this.password,
+      };
+      this.$store.dispatch('SIGN_IN', signInDetails);
     },
   },
 };
