@@ -10,10 +10,12 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.1.0",
+    "cypress": "^2.0.3",
     "firebase": "^4.10.0",
     "nuxt": "^1.0.0",
     "vuex": "^3.0.1"
