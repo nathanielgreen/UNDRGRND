@@ -9,7 +9,6 @@ const config = {
   storageBucket: process.env.FB_STORAGE_BUCKET,
   messagingSenderId: process.env.FB_MSG_SENDER_ID,
 };
-console.log(config);
 
 export default !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
 export const Auth = firebase.auth();
