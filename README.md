@@ -8,6 +8,8 @@ A social network linking up ravers with the newest underground music events.
   - [1.1 Front-end](#1.1)
   - [1.2 Back-end](#1.2)
 - [2.0 System Design](#2.0)
+  - [2.1 Accessing Firebase](#2.1)
+  - [2.2 Running E2E Tests](#2.2)
 - [3.0 Github Project Info](#3.0)
   - [3.1 Branching Strategy](#3.1)
   - [3.2 Install & Run](#3.2)
@@ -66,6 +68,17 @@ FB_PROJECT_ID='your_firebase_project_id'
 FB_STORAGE_BUCKET='your_firebase_storage_bucket'
 FB_MSG_SENDER_ID='your_firebase_messaging_sender_id'
 ```
+
+[<-- Back to Contents](#contents)
+
+---
+
+<div id="2.2" />
+
+## 2.2 Running E2E Tests
+
+To run the UNDRGRND end-to-end tests, run `yarn cypress:open` to open up
+cypress, and from there, select the spec file you want to run.
 
 [<-- Back to Contents](#contents)
 
