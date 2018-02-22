@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.1.0",
     "firebase": "^4.10.0",
     "nuxt": "^1.0.0",
     "vuex": "^3.0.1"
