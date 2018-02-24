@@ -11,7 +11,7 @@ html {
 
 body {
   align-items: center;
-  display: flex;
+  display: grid;
   height: 100%;
   justify-content: center;
   width: 100%;

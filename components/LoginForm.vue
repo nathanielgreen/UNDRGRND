@@ -1,23 +1,21 @@
 <template>
   <div class="login-form">
-    <div class="login-form__form">
-      <input
-        class="login-form__form-input"
-        v-model="email"
-        type="text"
-        placeholder="Email"
-      />
-      <input
-        class="login-form__form-input"
-        v-model="password"
-        type="password"
-        placeholder="Password"
-      />
-      <button
-        class="login-form__form-button"
-        @click="signIn()"
-      >Login</button>
-    </div>
+    <input
+      class="login-form-input"
+      v-model="email"
+      type="text"
+      placeholder="Email"
+    />
+    <input
+      class="login-form-input"
+      v-model="password"
+      type="password"
+      placeholder="Password"
+    />
+    <button
+      class="login-form-button"
+      @click="signIn()"
+    >Login</button>
   </div>
 </template>
 
@@ -52,15 +50,16 @@ export default {
 <style lang="scss" scoped>
 .login-form {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  width: 400px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+  padding: 100px;
 
-  &__form {
-    display: flex;
-    flex-direction: column;
+  &-input {
+    margin: 10px;
+  }
+  &-button {
+    margin: 10px;
   }
 }
 </style>
