@@ -1,29 +1,6 @@
 <template>
-  <div>
-    <v-dialog/>
-    <nuxt/>
-  </div>
+  <nuxt/>
 </template>
-
-<script>
-import { mapGetters } from 'vuex';
-
-export default {
-  computed: {
-    ...mapGetters({
-      authError: 'getAuthError',
-    }),
-  },
-  watch: {
-    authError() {
-      this.$modal.show('dialog', {
-        title: this.authError.code,
-        text: this.authError.message,
-      });
-    },
-  },
-};
-</script>
 
 <style>
 html {
