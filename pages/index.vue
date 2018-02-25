@@ -20,6 +20,9 @@
         <nuxt-link
           to="/login"
         >Login</nuxt-link>
+        <nuxt-link
+          to="/signup"
+        >Sign Up</nuxt-link>
       </div>
     </div>
   </section>
