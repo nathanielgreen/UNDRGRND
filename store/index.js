@@ -9,10 +9,12 @@ const store = () => new Vuex.Store({
       show: false,
       msg: null,
     },
+    viewedUser: null,
   },
   getters: {
     getUser: state => state.user,
     getAuthError: state => state.authError,
+    getViewedUser: state => state.viewedUser,
   },
   mutations: {
     updateUser(state, value) {
@@ -21,8 +23,19 @@ const store = () => new Vuex.Store({
     updateAuthError(state, value) {
       state.authError = value;
     },
+    updateViewedUser(state, value) {
+      state.viewedUser = value;
+    },
   },
   actions: {
+    GET_USER() {
+      const usersRef = firebase.database().ref('users/hello');
+      usersRef.on('value', (snapshot) => {
+        console.log(snapshot.val());
+      }, (errorObject) => {
+        console.log(errorObject.code);
+      });
+    },
     CREATE_USER(context, user) {
       const usersRef = firebase.database().ref('users');
       const newUserKey = usersRef.child('users').push().key;
