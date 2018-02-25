@@ -1,5 +1,6 @@
 <template>
   <div class="login-form">
+    <h2 class="login-form-title">Log In</h2>
     <input
       class="login-form-input"
       v-model="email"
@@ -14,6 +15,7 @@
     />
     <button
       class="login-form-button"
+      type="button"
       @click="signIn()"
     >Login</button>
   </div>
@@ -48,18 +50,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login-form {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-row-gap: 20px;
-  padding: 100px;
+@import '../assets/variables.scss';
 
+.login-form {
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+  justify-content: center;
+
+  &-title {
+    font-family: $font-main;
+    color: $color-white;
+    text-decoration: underline;
+  }
   &-input {
-    margin: 10px;
+    background: $color-black;
+    border: solid 1px $color-white;
+    color: $color-white;
+    font-size: 14px;
+    padding: 12px;
+    width: 250px;
   }
   &-button {
-    margin: 10px;
+    background: $color-black;
+    border: solid 2px $color-white;
+    border-bottom: solid 5px $color-white;
+    color: $color-white;
+    justify-self: center;
+    padding: 12px;
+    width: 150px;
+    &:active {
+      border-bottom: solid 2px $color-grey;
+      border-color: $color-grey;
+      color: $color-grey;
+      padding-bottom: 15px;
+    }
   }
 }
 </style>
