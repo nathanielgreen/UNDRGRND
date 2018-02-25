@@ -1,7 +1,4 @@
 module.exports = {
-  /*
-  ** Headers of the page
-  */
   head: {
     title: 'UNDRGRND',
     meta: [
@@ -20,10 +17,17 @@ module.exports = {
   plugins: [
     {src: '~/plugins/firebase-client-init.js', ssr: false },
   ],
+  css: [
+    './assets/global.scss',
+  ],
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      }
+    }
+  },
   build: {
-    /*
-    ** Run ESLint on save
-    */
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
