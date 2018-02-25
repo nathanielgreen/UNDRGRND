@@ -1,25 +1,26 @@
 <template>
   <div class="user">
-    {{ stuff }}
+    {{ user }}
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  data() {
-    return {
-      stuff: null,
-    };
+  computed: {
+    ...mapGetters({
+      user: 'getViewedUser',
+    }),
   },
+  layout: 'center-layout',
   async validate({ params }) {
     // eslint-disable-next-line
     return !isNaN(+params.id);
   },
-  async fetch({ store }) {
+  async asyncData({ store }) {
     const data = await store.dispatch('GET_A_USER');
-    console.log(data);
-    this.stuff = data;
-    return data;
+    store.commit('updateViewedUser', data);
   },
 };
 </script>

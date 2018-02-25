@@ -35,16 +35,6 @@ const store = () => new Vuex.Store({
       });
       return newData;
     },
-    GET_USER(context, id) {
-      console.log(id);
-      const usersRef = firebase.database().ref('users/hello');
-      usersRef.on('value', (snapshot) => {
-        console.log(snapshot.val());
-        context.commit('updateViewedUser', snapshot.val());
-      }, (errorObject) => {
-        console.log(errorObject.code);
-      });
-    },
     CREATE_USER(context, user) {
       const usersRef = firebase.database().ref('users');
       const newUserKey = usersRef.child('users').push().key;
