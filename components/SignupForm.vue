@@ -1,5 +1,6 @@
 <template>
   <div class="signup-form">
+    <h2 class="signup-form-title">Sign Up</h2>
     <input
       class="signup-form-input"
       type="email"
@@ -56,6 +57,11 @@ export default {
   grid-row-gap: 20px;
   justify-content: center;
 
+  &-title {
+    font-family: $font-main;
+    color: $color-white;
+    text-decoration: underline;
+  }
   &-input {
     background: $color-black;
     border: solid 1px $color-white;

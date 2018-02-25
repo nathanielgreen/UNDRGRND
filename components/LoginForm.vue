@@ -1,5 +1,6 @@
 <template>
   <div class="login-form">
+    <h2 class="login-form-title">Log In</h2>
     <input
       class="login-form-input"
       v-model="email"
@@ -52,12 +53,16 @@ export default {
 @import '../assets/variables.scss';
 
 .login-form {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr;
   grid-row-gap: 20px;
   justify-content: center;
 
+  &-title {
+    font-family: $font-main;
+    color: $color-white;
+    text-decoration: underline;
+  }
   &-input {
     background: $color-black;
     border: solid 1px $color-white;
