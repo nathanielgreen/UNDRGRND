@@ -1,69 +1,44 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        undrgrnd
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-        <nuxt-link
-          to="/login"
-        >Login</nuxt-link>
-        <nuxt-link
-          to="/signup"
-        >Sign Up</nuxt-link>
-      </div>
-    </div>
-  </section>
+  <div class="page-index">
+    <h1
+       class="page-index-title"
+      >UNDRGRND</h1>
+    <h2
+       class="page-index-desc"
+    >A social network linking up ravers with the newest underground music
+     events.
+    </h2>
+    <nuxt-link
+      class="page-index-link page-index-link--login"
+      to="/login"
+    >Login</nuxt-link>
+    <nuxt-link
+      class="page-index-link page-index-link--signup"
+      to="/login"
+    >Sign Up</nuxt-link>
+  </div>
 </template>
 
 <script>
-import AppLogo from '../components/AppLogo.vue';
-
 export default {
-  components: {
-    AppLogo,
-  },
 };
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style lang="scss" scoped>
+.page-index {
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "title title"
+    "desc desc"
+    "login signup";
   text-align: center;
-}
-
-.title {
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  &-title {
+    grid-area: title;
+  }
+  &-desc {
+    grid-area: desc;
+  }
 }
 </style>
