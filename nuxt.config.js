@@ -20,13 +20,6 @@ module.exports = {
   css: [
     '@/assets/global.scss',
   ],
-  render: {
-    bundleRenderer: {
-      shouldPreload: (file, type) => {
-        return ['script', 'style', 'font'].includes(type)
-      }
-    }
-  },
   build: {
     /*
     ** Run ESLint on save
