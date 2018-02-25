@@ -9,7 +9,7 @@ const store = () => new Vuex.Store({
       show: false,
       msg: null,
     },
-    viewedUser: null,
+    viewedUser: {},
   },
   getters: {
     getUser: state => state.user,
@@ -28,10 +28,11 @@ const store = () => new Vuex.Store({
     },
   },
   actions: {
-    GET_USER() {
+    GET_USER(context) {
       const usersRef = firebase.database().ref('users/hello');
       usersRef.on('value', (snapshot) => {
         console.log(snapshot.val());
+        context.commit('updateViewedUser', snapshot.val());
       }, (errorObject) => {
         console.log(errorObject.code);
       });
