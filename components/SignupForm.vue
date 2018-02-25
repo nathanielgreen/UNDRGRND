@@ -57,7 +57,7 @@ export default {
   justify-content: center;
 
   &-input {
-    background: #121212;
+    background: $color-black;
     border: solid 1px $color-white;
     color: $color-white;
     font-size: 14px;
@@ -65,7 +65,7 @@ export default {
     width: 250px;
   }
   &-button {
-    background: #121212;
+    background: $color-black;
     border: solid 2px $color-white;
     border-bottom: solid 5px $color-white;
     color: $color-white;
