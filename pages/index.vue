@@ -23,7 +23,6 @@
       v-else
       to="/Logout"
     >Logout</nuxt-link>
-      {{ viewedUser }}
   </div>
 </template>
 
@@ -32,13 +31,9 @@ import { mapGetters } from 'vuex';
 
 export default {
   layout: 'center-layout',
-  mounted() {
-    this.$store.dispatch('GET_USER', 'hello');
-  },
   computed: {
     ...mapGetters({
       user: 'getUser',
-      viewedUser: 'getViewedUser',
     }),
   },
 };
