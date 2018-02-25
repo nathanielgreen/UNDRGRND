@@ -18,7 +18,7 @@ module.exports = {
     {src: '~/plugins/firebase-client-init.js', ssr: false },
   ],
   css: [
-    './assets/global.scss',
+    '@/assets/global.scss',
   ],
   render: {
     bundleRenderer: {
@@ -28,6 +28,9 @@ module.exports = {
     }
   },
   build: {
+    /*
+    ** Run ESLint on save
+    */
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
