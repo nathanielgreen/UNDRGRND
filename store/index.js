@@ -25,11 +25,12 @@ const store = () => new Vuex.Store({
   actions: {
     CREATE_USER(context, user) {
       const usersRef = firebase.database().ref('users');
+      const newUserKey = usersRef.child('users').push().key;
       const newUser = {
         username: user.username,
         email: user.email,
+        id: newUserKey,
       };
-      const newUserKey = usersRef.child('users').push().key;
       const updates = {};
       updates[newUserKey] = newUser;
       usersRef.update(updates);
