@@ -40,6 +40,7 @@ export default {
     signUp() {
       const signUpDetails = {
         email: this.email,
+        username: this.username,
         password: this.password,
       };
       this.$store.dispatch('SIGN_UP', signUpDetails);
