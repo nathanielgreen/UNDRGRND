@@ -9,12 +9,12 @@
      events.
     </h2>
     <nuxt-link
-      class="page-index-link page-index-link--login"
+      class="page-index-link"
       to="/login"
     >Login</nuxt-link>
     <nuxt-link
-      class="page-index-link page-index-link--signup"
-      to="/login"
+      class="page-index-link"
+      to="/signup"
     >Sign Up</nuxt-link>
   </div>
 </template>

@@ -4,13 +4,21 @@ import firebase from 'firebase';
 const store = () => new Vuex.Store({
   state: {
     user: null,
+    authError: {
+      show: false,
+      msg: null,
+    },
   },
   getters: {
     getUser: state => state.user,
+    getAuthError: state => state.authError,
   },
   mutations: {
     updateUser(state, value) {
       state.user = value;
+    },
+    updateAuthError(state, value) {
+      state.authError = value;
     },
   },
   actions: {
@@ -19,6 +27,9 @@ const store = () => new Vuex.Store({
         .then((res) => {
           context.commit('updateUser', res);
           this.$router.replace('/');
+        })
+        .catch((err) => {
+          context.commit('updateAuthError', err);
         });
     },
     SIGN_UP(context, signUpDetails) {
@@ -26,6 +37,9 @@ const store = () => new Vuex.Store({
         .then((res) => {
           context.commit('updateUser', res);
           this.$router.replace('/');
+        })
+        .catch((err) => {
+          context.commit('updateAuthError', err);
         });
     },
   },

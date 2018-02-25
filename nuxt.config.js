@@ -15,8 +15,8 @@ module.exports = {
     '@nuxtjs/dotenv',
   ],
   plugins: [
+    '~/plugins/vue-js-modal.js',
     {src: '~/plugins/firebase-client-init.js', ssr: false },
-    {src: '~/plugins/vue-js-modal.js', ssr: false},
   ],
   css: [
     '@/assets/global.scss',
