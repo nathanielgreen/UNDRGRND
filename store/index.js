@@ -19,9 +19,13 @@ const store = () => new Vuex.Store({
         .then((res) => {
           context.commit('updateUser', res);
           this.$router.replace('/');
-        })
-        .catch((err) => {
-          console.log(err);
+        });
+    },
+    SIGN_UP(context, signUpDetails) {
+      firebase.auth().createUserWithEmailAndPassword(signUpDetails.email, signUpDetails.password)
+        .then((res) => {
+          context.commit('updateUser', res);
+          this.$router.replace('/');
         });
     },
   },
