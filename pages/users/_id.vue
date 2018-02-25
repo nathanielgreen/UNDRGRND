@@ -18,9 +18,13 @@ export default {
     // eslint-disable-next-line
     return !isNaN(+params.id);
   },
-  async asyncData({ store }) {
-    const data = await store.dispatch('GET_A_USER');
-    store.commit('updateViewedUser', data);
+  async asyncData({ store, params, error }) {
+    const data = await store.dispatch('GET_A_USER', params);
+    if (data == null) {
+      error({ message: 'User not found', statusCode: 404 });
+    } else {
+      store.commit('updateViewedUser', data);
+    }
   },
 };
 </script>

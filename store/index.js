@@ -27,8 +27,8 @@ const store = () => new Vuex.Store({
     },
   },
   actions: {
-    async GET_A_USER() {
-      const data = await firebase.database().ref('users/hello');
+    async GET_A_USER(context, params) {
+      const data = await firebase.database().ref(`users/${params.id}`);
       let newData;
       data.on('value', (snapshot) => {
         newData = snapshot.val();
