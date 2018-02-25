@@ -10,9 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Play' }
-
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   loading: { color: '#3B8070' },

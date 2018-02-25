@@ -13,8 +13,3 @@ export default {
   layout: 'center-form',
 };
 </script>
-
-<style lang="scss" scoped>
-.page-signup {
-}
-</style>
