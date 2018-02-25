@@ -1,7 +1,6 @@
 import Vuex from 'vuex';
 import firebase from 'firebase';
 
-
 const store = () => new Vuex.Store({
   state: {
     user: null,
@@ -9,7 +8,7 @@ const store = () => new Vuex.Store({
       show: false,
       msg: null,
     },
-    viewedUser: {},
+    viewedUser: null,
   },
   getters: {
     getUser: state => state.user,
@@ -28,7 +27,16 @@ const store = () => new Vuex.Store({
     },
   },
   actions: {
-    GET_USER(context) {
+    async GET_A_USER() {
+      const data = await firebase.database().ref('users/hello');
+      let newData;
+      data.on('value', (snapshot) => {
+        newData = snapshot.val();
+      });
+      return newData;
+    },
+    GET_USER(context, id) {
+      console.log(id);
       const usersRef = firebase.database().ref('users/hello');
       usersRef.on('value', (snapshot) => {
         console.log(snapshot.val());

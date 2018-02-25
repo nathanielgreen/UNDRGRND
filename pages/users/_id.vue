@@ -1,23 +1,25 @@
 <template>
   <div class="user">
-    {{ user.username }}
-    {{ user.email }}
+    {{ stuff }}
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
-  computed: {
-    ...mapGetters({
-      user: 'getViewedUser',
-    }),
+  data() {
+    return {
+      stuff: null,
+    };
   },
-  mounted() {
-    this.$store.dispatch('GET_USER');
+  async validate({ params }) {
+    // eslint-disable-next-line
+    return !isNaN(+params.id);
   },
-  layout: 'center-layout',
+  async fetch({ store }) {
+    const data = await store.dispatch('GET_A_USER');
+    console.log(data);
+    this.stuff = data;
+    return data;
+  },
 };
 </script>
-
