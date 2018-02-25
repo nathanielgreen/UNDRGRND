@@ -1,8 +1,6 @@
 <template>
-  <div class="page-signup">
-    <signup-form
-       class="page-signup__container"
-    ></signup-form>
+  <div>
+    <signup-form></signup-form>
   </div>
 </template>
 
@@ -18,8 +16,5 @@ export default {
 
 <style lang="scss" scoped>
 .page-signup {
-  height: 100%;
-  width: 100%;
-  background: #111111;
 }
 </style>

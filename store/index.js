@@ -19,9 +19,6 @@ const store = () => new Vuex.Store({
         .then((res) => {
           context.commit('updateUser', res);
           this.$router.replace('/');
-        })
-        .catch((err) => {
-          console.log(err);
         });
     },
   },
