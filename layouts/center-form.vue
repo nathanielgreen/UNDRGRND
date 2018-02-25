@@ -1,10 +1,8 @@
 <template>
-  <transition name="layout" mode="out-in">
-    <div>
-      <v-dialog/>
-      <nuxt/>
-    </div>
-  </transition>
+  <div>
+    <v-dialog/>
+    <nuxt/>
+  </div>
 </template>
 
 <script>
