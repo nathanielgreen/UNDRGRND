@@ -21,24 +21,53 @@
 
 <script>
 export default {
+  layout: 'center-form',
 };
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/variables.scss';
+
 .page-index {
+  align-items: center;
+  color: $color-white;
   display: grid;
+  font-family: $font-main;
   grid-template-rows: 2fr 1fr 1fr;
+  grid-row-gap: 40px;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "title title"
     "desc desc"
     "login signup";
   text-align: center;
+
   &-title {
     grid-area: title;
+    font-size: 80px;
   }
   &-desc {
     grid-area: desc;
+    font-size: 30px;
+    max-width: 700px;
+    word-wrap: break-word;
+  }
+  &-link {
+    background: $color-black;
+    border: solid 2px $color-white;
+    border-bottom: solid 5px $color-white;
+    color: $color-white;
+    justify-self: center;
+    vertical-align: middle;
+    padding: 12px;
+    width: 150px;
+
+    &:active {
+      border-bottom: solid 2px $color-grey;
+      border-color: $color-grey;
+      color: $color-grey;
+      padding-bottom: 15px;
+    }
   }
 }
 </style>
