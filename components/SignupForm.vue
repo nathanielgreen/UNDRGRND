@@ -21,7 +21,7 @@
     <button
       class="signup-form-button"
       type="button"
-      @click="signup()"
+      @click="signUp()"
     >Sign Up</button>
   </div>
 </template>
@@ -34,6 +34,15 @@ export default {
       username: '',
       password: '',
     };
+  },
+  methods: {
+    signUp() {
+      const signUpDetails = {
+        email: this.email,
+        password: this.password,
+      };
+      this.$store.dispatch('SIGN_UP', signUpDetails);
+    },
   },
 };
 </script>
