@@ -10,6 +10,6 @@ import SignupForm from '../components/SignupForm.vue';
 export default {
   name: 'PageSignup',
   components: { SignupForm },
-  layout: 'center-form',
+  layout: 'center-auth',
 };
 </script>

@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  layout: 'index',
+  layout: 'center-layout',
 };
 </script>
 
