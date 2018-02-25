@@ -13,9 +13,9 @@ a {
   text-decoration: none;
   font-family: $font-main;
 }
-.page-enter-active, .page-leave-active {
-  transition: opacity .3s
+.layout-enter-active, .layout-leave-active {
+  transition: opacity .5s;
 }
-.page-enter, .page-leave-active {
-  opacity: 0
+.layout-enter, .layout-leave-active {
+  opacity: 0;
 }
