@@ -1,6 +1,7 @@
 import Vuex from 'vuex';
 import firebase from 'firebase';
 
+
 const store = () => new Vuex.Store({
   state: {
     user: null,
@@ -22,6 +23,17 @@ const store = () => new Vuex.Store({
     },
   },
   actions: {
+    CREATE_USER(context, user) {
+      const usersRef = firebase.database().ref('users');
+      const newUser = {
+        username: user.username,
+        email: user.email,
+      };
+      const newUserKey = usersRef.child('users').push().key;
+      const updates = {};
+      updates[newUserKey] = newUser;
+      usersRef.update(updates);
+    },
     SIGN_IN(context, signInDetails) {
       firebase.auth().signInWithEmailAndPassword(signInDetails.email, signInDetails.password)
         .then((res) => {
@@ -36,6 +48,7 @@ const store = () => new Vuex.Store({
       firebase.auth().createUserWithEmailAndPassword(signUpDetails.email, signUpDetails.password)
         .then((res) => {
           context.commit('updateUser', res);
+          context.dispatch('CREATE_USER', signUpDetails);
           this.$router.replace('/');
         })
         .catch((err) => {
