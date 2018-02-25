@@ -9,9 +9,6 @@ import LoginForm from '../components/LoginForm.vue';
 
 export default {
   components: { LoginForm },
-  layout: 'center-form',
+  layout: 'center-auth',
 };
 </script>
-
-<style lang="scss">
-</style>

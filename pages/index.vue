@@ -10,18 +10,32 @@
     </h2>
     <nuxt-link
       class="page-index-link"
+      v-if="!user"
       to="/login"
     >Login</nuxt-link>
     <nuxt-link
       class="page-index-link"
+      v-if="!user"
       to="/signup"
     >Sign Up</nuxt-link>
+    <nuxt-link
+      class="page-index-link"
+      v-else
+      to="/Logout"
+    >Logout</nuxt-link>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  layout: 'index',
+  layout: 'center-layout',
+  computed: {
+    ...mapGetters({
+      user: 'getUser',
+    }),
+  },
 };
 </script>
 

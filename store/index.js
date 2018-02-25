@@ -42,6 +42,13 @@ const store = () => new Vuex.Store({
           context.commit('updateAuthError', err);
         });
     },
+    SIGN_OUT(context) {
+      firebase.auth().signOut()
+        .then(() => {
+          context.commit('updateUser', null);
+          this.$router.replace('/');
+        });
+    },
   },
 });
 
