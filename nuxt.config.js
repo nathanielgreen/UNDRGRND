@@ -1,7 +1,4 @@
 module.exports = {
-  /*
-  ** Headers of the page
-  */
   head: {
     title: 'UNDRGRND',
     meta: [
@@ -19,6 +16,9 @@ module.exports = {
   ],
   plugins: [
     {src: '~/plugins/firebase-client-init.js', ssr: false },
+  ],
+  css: [
+    '@/assets/global.scss',
   ],
   build: {
     /*

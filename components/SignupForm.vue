@@ -48,6 +48,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/variables.scss';
+
 .signup-form {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
@@ -56,24 +58,24 @@ export default {
 
   &-input {
     background: #121212;
-    border: solid 1px #ffffff;
-    color: #ffffff;
+    border: solid 1px $color-white;
+    color: $color-white;
     font-size: 14px;
     padding: 12px;
     width: 250px;
   }
   &-button {
     background: #121212;
-    border: solid 2px #ffffff;
-    border-bottom: solid 5px #ffffff;
-    color: #ffffff;
+    border: solid 2px $color-white;
+    border-bottom: solid 5px $color-white;
+    color: $color-white;
     justify-self: center;
     padding: 12px;
     width: 150px;
     &:active {
-      border-bottom: solid 2px #999;
-      border-color: #999;
-      color: #999;
+      border-bottom: solid 2px $color-grey;
+      border-color: $color-grey;
+      color: $color-grey;
       padding-bottom: 15px;
     }
   }
