@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <div class="navbar__links">
+    <div v-if="user === null" class="navbar__links">
       <nuxt-link
         class="navbar__links-link navbar__links-link--one"
         to="/login"
@@ -10,10 +10,26 @@
         to="/signup"
       >Sign Up</nuxt-link>
     </div>
+    <div v-else class="navbar__links">
+      <nuxt-link
+        class="navbar__links-link navbar__links-link--one"
+        to="/logout"
+      >Logout</nuxt-link>
+      {{ user }}
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters({
+      user: 'getUser',
+    }),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

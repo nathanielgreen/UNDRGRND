@@ -49,8 +49,8 @@ const store = () => new Vuex.Store({
     },
     SIGN_IN(context, signInDetails) {
       firebase.auth().signInWithEmailAndPassword(signInDetails.email, signInDetails.password)
-        .then((res) => {
-          context.commit('updateUser', res);
+        .then(() => {
+          context.commit('updateUser', true);
           this.$router.replace('/');
         })
         .catch((err) => {
