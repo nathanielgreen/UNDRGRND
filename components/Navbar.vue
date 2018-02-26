@@ -16,6 +16,7 @@
         to="/logout"
       >Logout</nuxt-link>
     </div>
+    {{ user }}
   </div>
 </template>
 
