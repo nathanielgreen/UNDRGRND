@@ -59,12 +59,19 @@ export default {
   &-title {
     grid-area: title;
     font-size: 80px;
+    @include breakpoint(mobile) {
+      font-size: 40px;
+    }
   }
   &-desc {
     grid-area: desc;
     font-size: 30px;
     max-width: 700px;
     word-wrap: break-word;
+    @include breakpoint(mobile) {
+      font-size: 20px;
+      max-width: 300px;
+    }
   }
   &-link {
     background: $color-black;
@@ -75,6 +82,9 @@ export default {
     vertical-align: middle;
     padding: 12px;
     width: 150px;
+    @include breakpoint(mobile) {
+      margin: 5px;
+    }
 
     &:active {
       border-bottom: solid 2px $color-grey;
