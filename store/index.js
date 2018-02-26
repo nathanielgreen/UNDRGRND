@@ -33,7 +33,6 @@ const store = () => new Vuex.Store({
       data.on('value', (snapshot) => {
         newData = snapshot.val();
       });
-      console.log(newData);
       return newData;
     },
     addUserToUsersRef(context, user) {
