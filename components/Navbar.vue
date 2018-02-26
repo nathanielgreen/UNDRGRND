@@ -11,10 +11,12 @@
       >Sign Up</nuxt-link>
     </div>
     <div v-else class="navbar__links">
-      <nuxt-link
+      <a
         class="navbar__links-link navbar__links-link--one"
-        to="/logout"
-      >Logout</nuxt-link>
+        target="_blank"
+        rel="noopener"
+        @click="logout()"
+      >Logout</a>
       <a
         class="navbar__links-link navbar__links-link--two"
         target="_blank"
@@ -36,8 +38,10 @@ export default {
   },
   methods: {
     visitMyProfile() {
-      console.log(this.user.uid);
       this.$router.replace(`/users/${this.user.uid}`);
+    },
+    logout() {
+      this.$store.dispatch('signOutWithFirebase');
     },
   },
 };

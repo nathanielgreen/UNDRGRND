@@ -22,8 +22,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'LoginForm',
   data() {
@@ -32,18 +30,13 @@ export default {
       password: '',
     };
   },
-  computed: {
-    ...mapActions([
-      'SIGN_IN',
-    ]),
-  },
   methods: {
     signIn() {
       const signInDetails = {
         email: this.email,
         password: this.password,
       };
-      this.$store.dispatch('SIGN_IN', signInDetails);
+      this.$store.dispatch('signInWithFirebase', signInDetails);
     },
   },
 };

@@ -43,7 +43,7 @@ export default {
         username: this.username,
         password: this.password,
       };
-      this.$store.dispatch('SIGN_UP', signUpDetails);
+      this.$store.dispatch('signUpWithFirebase', signUpDetails);
     },
   },
 };

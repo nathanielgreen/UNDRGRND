@@ -16,26 +16,27 @@ const store = () => new Vuex.Store({
     getViewedUser: state => state.viewedUser,
   },
   mutations: {
-    updateUser(state, value) {
+    UPDATE_USER(state, value) {
       state.user = value;
     },
-    updateAuthError(state, value) {
+    UPDATE_AUTH_ERROR(state, value) {
       state.authError = value;
     },
-    updateViewedUser(state, value) {
+    UPDATE_VIEWED_USER(state, value) {
       state.viewedUser = value;
     },
   },
   actions: {
-    async GET_A_USER(context, params) {
+    async getUserProfile(context, params) {
       const data = await firebase.database().ref(`users/${params.id}`);
       let newData;
       data.on('value', (snapshot) => {
         newData = snapshot.val();
       });
+      console.log(newData);
       return newData;
     },
-    CREATE_USER(context, user) {
+    addUserToUsersRef(context, user) {
       const usersRef = firebase.database().ref('users');
       const newUserKey = user.uid;
       const newUser = {
@@ -47,18 +48,17 @@ const store = () => new Vuex.Store({
       updates[newUserKey] = newUser;
       usersRef.update(updates);
     },
-    SIGN_IN(context, signInDetails) {
+    signInWithFirebase(context, signInDetails) {
       firebase.auth().signInWithEmailAndPassword(signInDetails.email, signInDetails.password)
         .then((res) => {
-          context.commit('updateUser', res);
-          console.log('hello');
+          context.commit('UPDATE_USER', res);
           this.$router.replace('/');
         })
         .catch((err) => {
-          context.commit('updateAuthError', err);
+          context.commit('UPDATE_AUTH_ERRO', err);
         });
     },
-    SIGN_UP(context, signUpDetails) {
+    signUpWithFirebase(context, signUpDetails) {
       firebase.auth().createUserWithEmailAndPassword(signUpDetails.email, signUpDetails.password)
         .then((res) => {
           const user = {
@@ -66,18 +66,18 @@ const store = () => new Vuex.Store({
             email: res.email,
             uid: res.uid,
           };
-          context.dispatch('CREATE_USER', user);
-          context.commit('updateUser', res);
+          context.dispatch('addUserToUsersRef', user);
+          context.commit('UPDATE_USER', res);
           this.$router.replace('/');
         })
         .catch((err) => {
-          context.commit('updateAuthError', err);
+          context.commit('UPDATE_AUTH_ERROR', err);
         });
     },
-    SIGN_OUT(context) {
+    signOutWithFirebase(context) {
       firebase.auth().signOut()
         .then(() => {
-          context.commit('updateUser', null);
+          context.commit('UPDATE_USER', null);
           this.$router.replace('/');
         });
     },

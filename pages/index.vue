@@ -30,7 +30,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  layout: 'center-layout',
+  layout: 'center-auth',
   computed: {
     ...mapGetters({
       user: 'getUser',
