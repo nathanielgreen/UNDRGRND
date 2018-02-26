@@ -47,6 +47,10 @@ const store = () => new Vuex.Store({
       updates[newUserKey] = newUser;
       usersRef.update(updates);
     },
+    SET_USER(context) {
+      const user = firebase.auth().currentUser;
+      context.commit('updateUser', user);
+    },
     SIGN_IN(context, signInDetails) {
       firebase.auth().signInWithEmailAndPassword(signInDetails.email, signInDetails.password)
         .then(() => {

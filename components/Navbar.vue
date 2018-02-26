@@ -15,7 +15,6 @@
         class="navbar__links-link navbar__links-link--one"
         to="/logout"
       >Logout</nuxt-link>
-      {{ user }}
     </div>
   </div>
 </template>
