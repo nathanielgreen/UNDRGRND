@@ -21,9 +21,6 @@ module.exports = {
   css: [
     '@/assets/global.scss',
   ],
-  router: {
-    middleware: ['user'],
-  },
   build: {
     /*
     ** Run ESLint on save

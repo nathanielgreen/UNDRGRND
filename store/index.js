@@ -16,18 +16,18 @@ const store = () => new Vuex.Store({
     getViewedUser: state => state.viewedUser,
   },
   mutations: {
-    updateUser(state, value) {
+    UPDATE_USER(state, value) {
       state.user = value;
     },
-    updateAuthError(state, value) {
+    UPDATE_AUTH_ERROR(state, value) {
       state.authError = value;
     },
-    updateViewedUser(state, value) {
+    UPDATE_VIEWED_USER(state, value) {
       state.viewedUser = value;
     },
   },
   actions: {
-    async GET_A_USER(context, params) {
+    async getUserProfile(context, params) {
       const data = await firebase.database().ref(`users/${params.id}`);
       let newData;
       data.on('value', (snapshot) => {
@@ -35,35 +35,29 @@ const store = () => new Vuex.Store({
       });
       return newData;
     },
-    CREATE_USER(context, user) {
+    addUserToUsersRef(context, user) {
       const usersRef = firebase.database().ref('users');
-      const newUserKey = usersRef.child('users').push().key;
+      const newUserKey = user.uid;
       const newUser = {
         username: user.username,
         email: user.email,
         id: user.uid,
-        key: newUserKey,
       };
-      console.log(newUser);
       const updates = {};
       updates[newUserKey] = newUser;
       usersRef.update(updates);
     },
-    SET_USER(context) {
-      const user = firebase.auth().currentUser;
-      context.commit('updateUser', user);
-    },
-    SIGN_IN(context, signInDetails) {
+    signInWithFirebase(context, signInDetails) {
       firebase.auth().signInWithEmailAndPassword(signInDetails.email, signInDetails.password)
-        .then(() => {
-          context.commit('updateUser', true);
+        .then((res) => {
+          context.commit('UPDATE_USER', res);
           this.$router.replace('/');
         })
         .catch((err) => {
-          context.commit('updateAuthError', err);
+          context.commit('UPDATE_AUTH_ERRO', err);
         });
     },
-    SIGN_UP(context, signUpDetails) {
+    signUpWithFirebase(context, signUpDetails) {
       firebase.auth().createUserWithEmailAndPassword(signUpDetails.email, signUpDetails.password)
         .then((res) => {
           const user = {
@@ -71,18 +65,18 @@ const store = () => new Vuex.Store({
             email: res.email,
             uid: res.uid,
           };
-          context.dispatch('CREATE_USER', user);
-          context.dispatch('SET_USER', user);
+          context.dispatch('addUserToUsersRef', user);
+          context.commit('UPDATE_USER', res);
           this.$router.replace('/');
         })
         .catch((err) => {
-          context.commit('updateAuthError', err);
+          context.commit('UPDATE_AUTH_ERROR', err);
         });
     },
-    SIGN_OUT(context) {
+    signOutWithFirebase(context) {
       firebase.auth().signOut()
         .then(() => {
-          context.commit('updateUser', null);
+          context.commit('UPDATE_USER', null);
           this.$router.replace('/');
         });
     },

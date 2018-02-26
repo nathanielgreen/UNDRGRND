@@ -1,8 +1,17 @@
 <template>
   <div>
+    <navbar/>
     <nuxt/>
   </div>
 </template>
+
+<script>
+import Navbar from '../components/Navbar.vue';
+
+export default {
+  components: { Navbar },
+};
+</script>
 
 <style>
 html {
@@ -18,5 +27,9 @@ html {
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
+}
+body {
+  background: #121212;
+  color: #ffffff;
 }
 </style>

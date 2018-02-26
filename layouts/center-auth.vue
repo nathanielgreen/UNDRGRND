@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navbar/>
     <v-dialog/>
     <nuxt/>
   </div>
@@ -7,8 +8,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import Navbar from '../components/Navbar.vue';
 
 export default {
+  components: { Navbar },
   computed: {
     ...mapGetters({
       authError: 'getAuthError',
