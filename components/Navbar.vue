@@ -15,8 +15,13 @@
         class="navbar__links-link navbar__links-link--one"
         to="/logout"
       >Logout</nuxt-link>
+      <a
+        class="navbar__links-link navbar__links-link--two"
+        target="_blank"
+        rel="noopener"
+        @click="visitMyProfile()"
+      >My Profile</a>
     </div>
-    {{ user }}
   </div>
 </template>
 
@@ -28,6 +33,11 @@ export default {
     ...mapGetters({
       user: 'getUser',
     }),
+  },
+  methods: {
+    visitMyProfile() {
+      console.log(this.user.uid);
+    },
   },
 };
 </script>
