@@ -1,3 +1,9 @@
+import firebase from 'firebase';
+
 export default function ({ store }) {
-  store.dispatch('SET_USER');
+  const user = firebase.auth().currentUser;
+  console.log(true);
+  if (user !== null) {
+    store.commit('updateUser', user);
+  }
 }

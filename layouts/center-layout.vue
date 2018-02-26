@@ -9,6 +9,7 @@
 import Navbar from '../components/Navbar.vue';
 
 export default {
+  middleware: ['user'],
   components: { Navbar },
 };
 </script>

@@ -37,6 +37,7 @@ export default {
   methods: {
     visitMyProfile() {
       console.log(this.user.uid);
+      this.$router.replace(`/users/${this.user.uid}`);
     },
   },
 };

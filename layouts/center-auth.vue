@@ -9,6 +9,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  middleware: ['user'],
   computed: {
     ...mapGetters({
       authError: 'getAuthError',

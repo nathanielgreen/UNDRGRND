@@ -37,26 +37,21 @@ const store = () => new Vuex.Store({
     },
     CREATE_USER(context, user) {
       const usersRef = firebase.database().ref('users');
-      const newUserKey = usersRef.child('users').push().key;
+      const newUserKey = user.uid;
       const newUser = {
         username: user.username,
         email: user.email,
         id: user.uid,
-        key: newUserKey,
       };
-      console.log(newUser);
       const updates = {};
       updates[newUserKey] = newUser;
       usersRef.update(updates);
     },
-    SET_USER(context) {
-      const user = firebase.auth().currentUser;
-      context.commit('updateUser', user);
-    },
     SIGN_IN(context, signInDetails) {
       firebase.auth().signInWithEmailAndPassword(signInDetails.email, signInDetails.password)
-        .then(() => {
-          context.commit('updateUser', true);
+        .then((res) => {
+          context.commit('updateUser', res);
+          console.log('hello');
           this.$router.replace('/');
         })
         .catch((err) => {
@@ -72,7 +67,7 @@ const store = () => new Vuex.Store({
             uid: res.uid,
           };
           context.dispatch('CREATE_USER', user);
-          context.dispatch('SET_USER', user);
+          context.commit('updateUser', res);
           this.$router.replace('/');
         })
         .catch((err) => {
