@@ -8,21 +8,6 @@
     >A social network linking up ravers with the newest underground music
      events.
     </h2>
-    <nuxt-link
-      class="page-index-link"
-      v-if="!user"
-      to="/login"
-    >Login</nuxt-link>
-    <nuxt-link
-      class="page-index-link"
-      v-if="!user"
-      to="/signup"
-    >Sign Up</nuxt-link>
-    <nuxt-link
-      class="page-index-link"
-      v-else
-      to="/Logout"
-    >Logout</nuxt-link>
   </div>
 </template>
 
@@ -47,13 +32,12 @@ export default {
   color: $color-white;
   display: grid;
   font-family: $font-main;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
   grid-row-gap: 40px;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "title title"
-    "desc desc"
-    "login signup";
+    "desc desc";
   text-align: center;
 
   &-title {
@@ -71,26 +55,6 @@ export default {
     @include breakpoint(mobile) {
       font-size: 20px;
       max-width: 300px;
-    }
-  }
-  &-link {
-    background: $color-black;
-    border: solid 2px $color-white;
-    border-bottom: solid 5px $color-white;
-    color: $color-white;
-    justify-self: center;
-    vertical-align: middle;
-    padding: 12px;
-    width: 150px;
-    @include breakpoint(mobile) {
-      margin: 5px;
-    }
-
-    &:active {
-      border-bottom: solid 2px $color-grey;
-      border-color: $color-grey;
-      color: $color-grey;
-      padding-bottom: 15px;
     }
   }
 }
