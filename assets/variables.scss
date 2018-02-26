@@ -5,3 +5,18 @@ $color-white: #ffffff;
 $color-grey: #999999;
 
 $font-main: 'Play', sans-serif;
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 70em) { @content ; }
+  }
+  @else if $point == laptop {
+    @media (min-width: 64em) { @content ; }
+  }
+  @else if $point == tablet {
+    @media (min-width: 50em) { @content ; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 37.5em)  { @content ; }
+  }
+}
