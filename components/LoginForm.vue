@@ -32,11 +32,6 @@ export default {
   },
   methods: {
     signIn() {
-      const signInDetails = {
-        email: this.email,
-        password: this.password,
-      };
-      this.$store.dispatch('signInWithFirebase', signInDetails);
     },
   },
 };

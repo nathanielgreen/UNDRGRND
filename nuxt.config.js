@@ -16,7 +16,6 @@ module.exports = {
   ],
   plugins: [
     '~/plugins/vue-js-modal.js',
-    {src: '~/plugins/firebase-client-init.js', ssr: true },
   ],
   css: [
     '@/assets/global.scss',

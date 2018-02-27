@@ -8,8 +8,7 @@ A social network linking up ravers with the newest underground music events.
   - [1.1 Front-end](#1.1)
   - [1.2 Back-end](#1.2)
 - [2.0 System Design](#2.0)
-  - [2.1 Accessing Firebase](#2.1)
-  - [2.2 Running E2E Tests](#2.2)
+  - [2.1 Running E2E Tests](#2.1)
 - [3.0 Github Project Info](#3.0)
   - [3.1 Branching Strategy](#3.1)
   - [3.2 Install & Run](#3.2)
@@ -54,28 +53,7 @@ A social network linking up ravers with the newest underground music events.
 
 <div id="2.1" />
 
-## 2.1 Accessing Firebase
-
-To access the Firebase and you'll need to 
-create a file `.env` with the correct credentials.
-
-Example:
-```
-FB_API_KEY='your_firebase_api_key'
-FB_AUTH_DOMAIN='your_firebase_auth_domain'
-FB_DB_URL='your_firebase_database_url'
-FB_PROJECT_ID='your_firebase_project_id'
-FB_STORAGE_BUCKET='your_firebase_storage_bucket'
-FB_MSG_SENDER_ID='your_firebase_messaging_sender_id'
-```
-
-[<-- Back to Contents](#contents)
-
----
-
-<div id="2.2" />
-
-## 2.2 Running E2E Tests
+## 2.1 Running E2E Tests
 
 To run the UNDRGRND end-to-end tests, run `yarn cypress:open` to open up
 cypress, and from there, select the spec file you want to run.

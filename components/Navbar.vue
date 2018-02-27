@@ -36,14 +36,6 @@ export default {
       user: 'getUser',
     }),
   },
-  methods: {
-    visitMyProfile() {
-      this.$router.replace(`/users/${this.user.uid}`);
-    },
-    logout() {
-      this.$store.dispatch('signOutWithFirebase');
-    },
-  },
 };
 </script>
 
