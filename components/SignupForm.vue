@@ -36,16 +36,6 @@ export default {
       password: '',
     };
   },
-  methods: {
-    signUp() {
-      const signUpDetails = {
-        email: this.email,
-        username: this.username,
-        password: this.password,
-      };
-      this.$store.dispatch('signUpWithFirebase', signUpDetails);
-    },
-  },
 };
 </script>
 
