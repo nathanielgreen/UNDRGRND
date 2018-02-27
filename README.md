@@ -8,7 +8,6 @@ A social network linking up ravers with the newest underground music events.
   - [1.1 Front-end](#1.1)
   - [1.2 Back-end](#1.2)
 - [2.0 System Design](#2.0)
-  - [2.1 Running E2E Tests](#2.1)
 - [3.0 Github Project Info](#3.0)
   - [3.1 Branching Strategy](#3.1)
   - [3.2 Install & Run](#3.2)
@@ -30,8 +29,6 @@ A social network linking up ravers with the newest underground music events.
 - [Vuex (Vue.js state management)](https://vuex.vuejs.org/en/)
 - [SASS (Compiled CSS Language)](http://sass-lang.com/)
 - [ESLint (Airbnb Javascript Style Guide)](https://github.com/airbnb/javascript)
-- [Cypress (End-to-End Testing
-  Framework)](https://www.cypress.io/)
 
 [<-- Back to Contents](#contents)
 
@@ -41,7 +38,9 @@ A social network linking up ravers with the newest underground music events.
 
 ## 1.2 Back-end
 
-- [Firebase](https://firebase.google.com/)
+- [GraphQL](http://graphql.org/)
+- [Apollo](https://www.apollographql.com/)
+- [Prisma](https://www.prismagraphql.com/)
 
 [<-- Back to Contents](#contents)
 
@@ -50,13 +49,6 @@ A social network linking up ravers with the newest underground music events.
 <div id="2.0" />
 
 # 2.0 System Design
-
-<div id="2.1" />
-
-## 2.1 Running E2E Tests
-
-To run the UNDRGRND end-to-end tests, run `yarn cypress:open` to open up
-cypress, and from there, select the spec file you want to run.
 
 [<-- Back to Contents](#contents)
 
