@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import gql from 'graphql-tag';
 
 const store = () => new Vuex.Store({
   state: {
@@ -26,6 +27,27 @@ const store = () => new Vuex.Store({
     },
   },
   actions: {
+    foo() {
+      const graphqlClient = this.app.apolloProvider.defaultClient;
+      graphqlClient.query({
+        query: gql`
+          query FeedQuery {
+            feed {
+              links {
+                id
+                createdAt
+                url
+                description
+              }
+            }
+          }
+        `,
+      }).then((res) => {
+        console.log(res.data.feed);
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
   },
 });
 

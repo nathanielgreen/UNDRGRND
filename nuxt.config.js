@@ -13,10 +13,16 @@ module.exports = {
   loading: { color: '#3B8070' },
   modules: [
     '@nuxtjs/dotenv',
+    '@nuxtjs/apollo',
   ],
   plugins: [
     '~/plugins/vue-js-modal.js',
   ],
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js'
+    }
+  },
   css: [
     '@/assets/global.scss',
   ],

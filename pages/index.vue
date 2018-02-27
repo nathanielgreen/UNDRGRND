@@ -2,6 +2,7 @@
   <div class="page-index">
     <h1
        class="page-index-title"
+       @click="foo()"
       >UNDRGRND</h1>
     <h2
        class="page-index-desc"
@@ -20,6 +21,11 @@ export default {
     ...mapGetters({
       user: 'getUser',
     }),
+  },
+  methods: {
+    foo() {
+      this.$store.dispatch('foo');
+    },
   },
 };
 </script>
