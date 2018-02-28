@@ -1,20 +1,31 @@
-async function feed(parent, args, ctx, info) {
-  const { filter, first, skip } = args // destructure input arguments
-  const where = filter
-    ? { OR: [{ url_contains: filter }, { description_contains: filter }] }
-    : {}
+const { getUserId } = require('../utils')
 
-  const allLinks = await ctx.db.query.links({})
-  const count = allLinks.length
+const Query = {
+  feed(parent, args, ctx, info) {
+    return ctx.db.query.posts({ where: { isPublished: true } }, info)
+  },
 
-  const queriedLinkes = await ctx.db.query.links({ first, skip, where })
+  drafts(parent, args, ctx, info) {
+    const id = getUserId(ctx)
 
-  return {
-    linkIds: queriedLinkes.map(link => link.id),
-    count
-  }
+    const where = {
+      isPublished: false,
+      author: {
+        id
+      }
+    }
+
+    return ctx.db.query.posts({ where }, info)
+  },
+
+  post(parent, { id }, ctx, info) {
+    return ctx.db.query.post({ where: { id } }, info)
+  },
+
+  me(parent, args, ctx, info) {
+    const id = getUserId(ctx)
+    return ctx.db.query.user({ where: { id } }, info)
+  },
 }
 
-module.exports = {
-  feed,
-}
+module.exports = { Query }
