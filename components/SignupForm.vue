@@ -36,6 +36,16 @@ export default {
       password: '',
     };
   },
+  methods: {
+    signUp() {
+      const data = {
+        email: this.email,
+        password: this.password,
+        name: this.username,
+      };
+      this.$store.dispatch('signUp', data);
+    },
+  },
 };
 </script>
 

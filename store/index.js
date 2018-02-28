@@ -27,26 +27,36 @@ const store = () => new Vuex.Store({
     },
   },
   actions: {
-    foo() {
-      const graphqlClient = this.app.apolloProvider.defaultClient;
-      graphqlClient.query({
-        query: gql`
-          query FeedQuery {
-            feed {
-              links {
+    async signUp(context, data) {
+      const client = await this.app.apolloProvider.defaultClient;
+      const response = await client.mutate({
+        mutation: gql`
+          mutation signUp(
+            $email: String!
+            $password: String!
+            $name: String!
+          ) {
+            signup(
+              email: $email
+              password: $password
+              name: $name
+            ) {
+              token
+              user {
                 id
-                createdAt
-                url
-                description
+                name
+                email 
               }
             }
           }
         `,
-      }).then((res) => {
-        console.log(res.data.feed);
-      }).catch((err) => {
-        console.log(err);
+        variables: {
+          email: data.email,
+          password: data.password,
+          name: data.name,
+        },
       });
+      console.log(response);
     },
   },
 });
