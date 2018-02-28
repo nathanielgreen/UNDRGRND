@@ -29,7 +29,7 @@ const store = () => new Vuex.Store({
   actions: {
     async signUp(context, data) {
       const client = await this.app.apolloProvider.defaultClient;
-      const response = await client.mutate({
+      await client.mutate({
         mutation: gql`
           mutation signUp(
             $email: String!
@@ -55,8 +55,42 @@ const store = () => new Vuex.Store({
           password: data.password,
           name: data.name,
         },
+      }).then((res) => {
+        context.commit('UPDATE_USER', res.data.signup.user);
+      }).catch((err) => {
+        console.log(err);
       });
-      console.log(response);
+    },
+    async signIn(context, data) {
+      const client = await this.app.apolloProvider.defaultClient;
+      await client.mutate({
+        mutation: gql`
+          mutation login(
+            $email: String!
+            $password: String!
+          ) {
+            login(
+              email: $email
+              password: $password
+            ) {
+              token
+              user {
+                id
+                name
+                email 
+              }
+            }
+          }
+        `,
+        variables: {
+          email: data.email,
+          password: data.password,
+        },
+      }).then((res) => {
+        context.commit('UPDATE_USER', res.data.login.user);
+      }).catch((err) => {
+        console.log(err);
+      });
     },
   },
 });
