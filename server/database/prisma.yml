@@ -1,14 +1,18 @@
 # the name for the service (will be part of the service's HTTP endpoint)
-service: hackernews-graphql-js
+service: undrgrnd
 
 # the cluster and stage the service is deployed to
-stage: dev
+stage: ${env:PRISMA_STAGE}
 
 # to disable authentication:
 # disableAuth: true
-secret: mysecret123
+secret: ${env:PRISMA_SECRET}
 
 # the file path pointing to your data model
 datamodel: datamodel.graphql
 
-cluster: public-woodotter-633/prisma-eu1
+# seed your service with initial data based on seed.graphql
+seed:
+  import: seed.graphql
+
+cluster: ${env:PRISMA_CLUSTER}

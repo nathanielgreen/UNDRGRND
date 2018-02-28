@@ -1,23 +1,17 @@
-type Vote {
-  id: ID! @unique
-  link: Link!  
-  user: User!
-}
-
-type Link {
+type Post {
   id: ID! @unique
   createdAt: DateTime!
-  description: String!
-  url: String!
-  postedBy: User
-  votes: [Vote!]!
+  updatedAt: DateTime!
+  isPublished: Boolean! @default(value: "false")
+  title: String!
+  text: String!
+  author: User!
 }
 
 type User {
   id: ID! @unique
-  name: String!
   email: String! @unique
   password: String!
-  links: [Link!]!
-  votes: [Vote!]!
+  name: String!
+  posts: [Post!]!
 }
