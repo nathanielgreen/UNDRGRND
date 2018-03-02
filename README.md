@@ -114,6 +114,8 @@ When code has been reviewed (if necessary) select the option 'Squash and Merge'
 
 ## 3.2 Install and Run
 
+### 3.2.1 Front-end
+
 ``` bash
 # install dependencies
 $  yarn install
@@ -130,6 +132,38 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
+[<-- Back to Contents](#contents)
+
+### 3.2.2 Back-end
+
+Create a `.env` file that contains your prisma details:
+```
+PRISMA_STAGE=""
+PRISMA_ENDPOINT=""
+PRISMA_CLUSTER=""
+PRISMA_SECRET=""
+APP_SECRET=""
+```
+
+To run the server:
+```bash
+# move to server directory
+cd server
+
+#starts GraphQL server on `http://localhost:4000
+yarn start
+
+starts GraphQL server on http://localhost:4000 _and_ opens GraphQL Playground
+yarn dev
+
+# opens the GraphQL Playground for the `projects` from [`.graphqlconfig.yml`](./.graphqlconfig.yml)
+yarn playground
+
+# gives access to local version of Prisma CLI (e.g. `yarn prisma deploy`)
+yarn prisma <subcommand>
+
+```
 
 [<-- Back to Contents](#contents)
 
