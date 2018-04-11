@@ -16,6 +16,7 @@ module.exports = {
     '@nuxtjs/apollo',
   ],
   plugins: [
+    { src: '~/plugins/localStorage.js', ssr: false },
     '~/plugins/vue-js-modal.js',
   ],
   apollo: {
